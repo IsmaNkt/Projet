@@ -1,16 +1,26 @@
-all: main
+# Nom de l'exécutable
+EXEC = main
 
+# Liste des fichiers source
+SRC = main.c affichage.c entrainement.c statistique.c fathlete.c verification.c menu.c
+
+# Liste des fichiers objets
+OBJ = $(SRC:.c=.o)
+
+# Compilateur
 CC = clang
-override CFLAGS += -g -Wno-everything -pthread -lm
 
-SRCS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.c' -print)
-HEADERS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.h' -print)
+# Options de compilation
+CFLAGS = -g -Wno-everything -pthread -lm
 
-mainJO: $(SRCS) $(HEADERS)
-	$(CC) $(CFLAGS) $(SRCS) -o "$@"
+# Règle pour créer l'exécutable
+$(EXEC): $(OBJ)
+  $(CC) $(CFLAGS) -o $@ $^
 
-main-debug: $(SRCS) $(HEADERS)
-	$(CC) $(CFLAGS) -O0 $(SRCS) -o "$@"
+# Règle pour compiler les fichiers .c en fichiers .o
+%.o: %.c
+  $(CC) $(CFLAGS) -c -o $@ $<
 
+# Règle pour nettoyer les fichiers objets et l'exécutable
 clean:
-	rm -f main main-debug
+  rm -f $(OBJ) $(EXEC)
