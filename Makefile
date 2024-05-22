@@ -14,17 +14,3 @@ main-debug: $(SRCS) $(HEADERS)
 
 clean:
 	rm -f main main-debug
-
-
-
-#..
-#
-#..
-#
-#creerFichier.o : creerFichier.c fichierheaders.h
-#	gcc -c creerFichier.c -o creerFichier.o
-#
-#
-#exec : mainJO.o creerFichier.o
-#	gcc mainJO.o creerFichier.o -o exec
-
