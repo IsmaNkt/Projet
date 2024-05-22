@@ -15,12 +15,12 @@ CFLAGS = -g -Wno-everything -pthread -lm
 
 # Règle pour créer l'exécutable
 $(EXEC): $(OBJ)
-  $(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 # Règle pour compiler les fichiers .c en fichiers .o
 %.o: %.c
-  $(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 # Règle pour nettoyer les fichiers objets et l'exécutable
 clean:
-  rm -f $(OBJ) $(EXEC)
+	rm -f $(OBJ) $(EXEC)
