@@ -8,7 +8,7 @@ SRC = main.c affichage.c entrainement.c statistique.c fathlete.c verification.c 
 OBJ = $(SRC:.c=.o)
 
 # Compilateur
-CC = clang
+CC = gcc
 
 # Options de compilation
 CFLAGS = -g -Wno-everything -pthread -lm
