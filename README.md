@@ -2,12 +2,12 @@
 
 Ce programme permet de gérer les athlètes et leurs entraînements dans différentes épreuves sportives. 
 Il offre plusieurs fonctionnalités telles que:
-  - la création de fichiers pour les athlètes
-  - l'ajout d'entraînements
-  - la consultation de l'historique des entraînements
-  - l'affichage des performances des athlètes
-  - la recherche des meilleurs et des pires athlètes dans une discipline
-  - la comparaison des temps entre deux dates pour une même épreuve
+  - Création de fichiers pour les athlètes
+  - Ajout d'entraînements
+  - Consultation de l'historique des entraînements
+  - Affichage des performances des athlètes
+  - Recherche des meilleurs et des pires athlètes dans une discipline
+  - Comparaison des temps entre deux dates pour une même épreuve
 
 
 
