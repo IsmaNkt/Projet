@@ -16,16 +16,17 @@ Le projet est composé des fichiers suivants :
 1. main.c : Contient la fonction principale pour démarrer le programme.
 2. affichage.c : Contient les fonctions pour afficher diverses informations et rapports liés aux athlètes et aux entraînements.
 3. affichage.h : Déclare les fonctions pour afficher les informations et rapports.
-4. entrainement.c : Implémente les fonctions pour ajouter des entraînements.
-5. entrainement.h : Fichier d'en-tête contenant les déclarations des fonctions du fichier entrainement.c.
+4. entrainement.c : Contient la fonction pour ajouter des entraînements.
+5. entrainement.h : Fichier d'en-tête contenant la déclaration de la fonction du fichier entrainement.c.
 6. fathlete.c : Contient les fonctions pour manipuler les données des athlètes.
 7. fathlete.h : Fichier d'en-tête contenant les déclarations des fonctions de manipulation des données des athlètes.
 8. menu.c : Contient les fonctions pour afficher le menu principal du programme.
 9. menu.h : Fichier d'en-tête contenant les déclarations des fonctions du fichier menu.c.
 10. statistique.c : Contient les fonctions pour afficher les performances des athlètes, les meilleurs athlètes dans une épreuve, les pires athlètes dans une épreuve et la différence de temps entre deux dates pour une épreuve.
-11. structure.h : Fichier d'en-tête contenant les définitions des structures utilisées dans le programme.
-12. verification.c : Contient les fonctions pour valider un nom, vérifier l'existence d'un nom de fichier, récupérer un nom de fichier et vérifier si un sportif peut participer à un relais à une certaine date.
-13. verification.h : Fichier d'en-tête contenant les déclarations des fonctions de vérification.
+11. statistique.h : Fichier d'en-tête contenant les déclarations des fonctions du fichier statistique.c
+12. structure.h : Fichier d'en-tête contenant les définitions des structures utilisées dans le programme.
+13. verification.c : Contient les fonctions pour valider un nom, vérifier l'existence d'un nom de fichier, récupérer un nom de fichier et vérifier si un sportif peut participer à un relais à une certaine date.
+14. verification.h : Fichier d'en-tête contenant les déclarations des fonctions de vérification.
 
 
 # Utilisation
