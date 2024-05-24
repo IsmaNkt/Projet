@@ -18,7 +18,7 @@ Le projet est composé des fichiers suivants :
 3. verification.c : Contient les fonctions pour valider un nom, vérifier l'existence d'un nom de fichier, récupérer un nom de fichier et vérifier si un sportif peut participer à un relais à une certaine date.
 4. structure.h : Fichier d'en-tête contenant les définitions des structures utilisées dans le programme.
 5. menu.h : Fichier d'en-tête contenant les déclarations des fonctions du fichier menu.c.
-6. entrainement.h : Fichier d'en-tête contenant les déclarations des fonctions du fichier statistique.c.
+6. entrainement.c : Implémente les fonctions pour ajouter des entraînements.
 
 
 # Utilisation
