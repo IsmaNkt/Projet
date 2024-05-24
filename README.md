@@ -22,7 +22,9 @@ Le projet est composé des fichiers suivants :
 
 
 # Utilisation
-Pour utiliser le programme, compilez tous les fichiers source en utilisant votre compilateur C (gcc). Assurez-vous que tous les fichiers .c et .h sont présents dans le répertoire de compilation. Ensuite, exécutez le fichier exécutable généré.
+Assurez-vous que tous les fichiers .c et .h sont présents dans le répertoire de compilation.
+Pour utiliser le programme, compilez tous les fichiers source en utilisant votre compilateur C (gcc) à l'aide de la commande: make
+Ensuite, exécutez le fichier exécutable à l'aide de la commande: ./main
 Lors de l'exécution, suivez les instructions du menu pour accéder aux différentes fonctionnalités du programme.
 
 
