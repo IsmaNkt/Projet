@@ -1,6 +1,7 @@
 # Gestion des Athlètes
 
 Ce programme permet de gérer les athlètes et leurs entraînements dans différentes épreuves sportives. 
+
 Il offre plusieurs fonctionnalités telles que:
   - Création de fichiers pour les athlètes
   - Ajout d'entraînements
