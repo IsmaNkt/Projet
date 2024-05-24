@@ -15,7 +15,7 @@ Le projet est composé des fichiers suivants :
 
 1. main.c : Contient la fonction principale pour démarrer le programme.
 2. affichage.c : Contient les fonctions pour afficher diverses informations et rapports liés aux athlètes et aux entraînements.
-3. affichage.h : Déclare les fonctions pour afficher les informations et rapports.
+3. affichage.h : Fichier d'en-tête contenant la déclaration des fonctions pour afficher les informations et rapports.
 4. entrainement.c : Contient la fonction pour ajouter des entraînements.
 5. entrainement.h : Fichier d'en-tête contenant la déclaration de la fonction du fichier entrainement.c.
 6. fathlete.c : Contient les fonctions pour manipuler les données des athlètes.
