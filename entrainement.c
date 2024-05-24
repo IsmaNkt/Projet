@@ -145,7 +145,7 @@ void AjouterEntrainement() {
 
     char change[50];
 
-    if (choix == 5) {
+    if (choix == 7) {
       char change1[] = "boxe";
       strcpy(change, change1);
     } else if (choix == 8) {
@@ -177,8 +177,9 @@ void AjouterEntrainement() {
       if(i==1){
         strcpy(res, res1);
       }
+
       fprintf(fichier1,
-              "Entraînement fait le %.2d/%.2d/%d pour l'épreuve de %s avec un temps "
+              "Entraînement fait le %.2d/%.2d/%d pour l'épreuve %s avec un temps "
               "de %.2d:%.2d:%.2d\n",
               s->exercice->date.jour, s->exercice->date.mois,
               s->exercice->date.annee, change, s->exercice->temps.heure,
