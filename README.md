@@ -11,6 +11,7 @@ Il offre plusieurs fonctionnalités telles que:
 
 
 #Structure du Projet
+
 Le projet est composé des fichiers suivants :
 
 1. menu.c : Contient les fonctions pour afficher le menu principal du programme.
