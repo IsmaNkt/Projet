@@ -95,7 +95,7 @@ void AjouterEntrainement() {
     } while (strcmp(nomS[0], nomS[1]) == 0);
 
     // choisir la date d'entrainement
-    printf("Quand va-t-il s'entraîner ? (forme: jour/mois/annee):\n");
+    printf("\nQuand va-t-il s'entraîner ? (forme: jour/mois/annee):\n");
     do {
       printf("Choisir le jour : \n");
       scanf("%d", &s->exercice->date.jour);
@@ -167,7 +167,7 @@ void AjouterEntrainement() {
       strcpy(res1, "vainqueur");
       }
     // Écrire les détails de l'entraînement dans les fichiers des 4 sportifs
-    printf("\nLors de cette entrainement de %s en %d\n", change, round);
+    printf("\nLors de cette entrainement de %s en %d round : \n", change, round);
     
     for (int i = 0; i < 2; i++) {
       FILE *fichier1 = fopen(nomS[i], "a");
@@ -219,9 +219,10 @@ void AjouterEntrainement() {
       printf("Il faut avoir 4 sportifs pour pouvoir faire cette épreuve de "
              "relais...\n"
              "Revener lorsque vous les aurez.\n");
+      printf("On vous laisse l'occasion de choisir une autre épreuve en attendant, à plus tard\n");
       free(s->exercice);
       free(s);
-      return; // on quitte la fontion
+      return AjouterEntrainement(); // on quitte la fontion
     }
 
     // On vérifie que l'utilaisateur a bien 4 sportifs
@@ -240,6 +241,7 @@ void AjouterEntrainement() {
       return AjouterEntrainement();
     }
 
+    printf("\n vérification terminée.\n");
     printf("Il est temps de choisir vos 4 sportifs pour le relais.\n");
     printf("Les sportifs doivent être choisis dans l'ordre de positionnement "
            "dans le relais.\n");
@@ -259,7 +261,7 @@ void AjouterEntrainement() {
              strcmp(nomS[1], nomS[3]) == 0 || strcmp(nomS[2], nomS[3]) == 0);
 
     // choisir la date d'entrainement
-    printf("Quand va-t-il s'entraîner ? (forme: jour/mois/annee):\n");
+    printf("\nQuand va-t-il s'entraîner ? (forme: jour/mois/annee):\n");
     do {
       printf("Choisir le jour : \n");
       scanf("%d", &s->exercice->date.jour);
@@ -305,17 +307,15 @@ void AjouterEntrainement() {
         printf("L'ouverture du fichier %s a échoué\n", nomS[i]);
       }
       if (VerifierDateRelais(nomS[i], s->exercice->date)) {
-        printf("%s ne peut pas participer au relais à cette date.\n", nomS[i]);
-        printf("L'entrainement est annulé.\n");
-        fclose(fichier1);
         free(s->exercice);
         free(s);
-        return;
+        printf("\nNous vous laissons l'occasion de choisir un autre entrainement\n");
+        return AjouterEntrainement();
       }
     }
 
     // Choisir le temps d'entrainement
-    printf("Combien de temps vont durer leurs entrainement en tout? (de la "
+    printf("\nCombien de temps vont durer leurs entrainement en tout? (de la "
            "forme : h:m:s)\n");
     do {
       printf("Choisir le nombre d'heures : ");
@@ -369,7 +369,7 @@ void AjouterEntrainement() {
 
       fclose(fichier1);
     }
-    printf("Voulez-vous ajouter un autre entraînement ?(oui/non):\n");
+    printf("\nVoulez-vous ajouter un autre entraînement ?(oui/non):\n");
     oui_non(reponse);
     if (strcmp(reponse, "oui") == 0){
       return AjouterEntrainement();
@@ -397,7 +397,8 @@ void AjouterEntrainement() {
       if (strcmp(r, "non") == 0) {
         printf("Il faut avoir 4 sportifs pour pouvoir faire cette épreuve de "
                "natation...\n"
-               "Revener lorsque vous les aurez.\n");
+               "Revenez lorsque vous les aurez.\n");
+        printf("On vous laisse l'occasion de choisir une autre épreuve en attendant, à plus tard\n");
         free(s->exercice);
         free(s);
         AjouterEntrainement(); // on quitte la fontion
@@ -437,7 +438,7 @@ void AjouterEntrainement() {
                strcmp(nomS[1], nomS[3]) == 0 || strcmp(nomS[2], nomS[3]) == 0);
 
       // choisir la date d'entrainement
-      printf("Quand va-t-il s'entraîner ? (forme: jour/mois/annee):\n");
+      printf("\nQuand va-t-il s'entraîner ? (forme: jour/mois/annee):\n");
       do {
         printf("Choisir le jour : \n");
         scanf("%d", &s->exercice->date.jour);
@@ -479,7 +480,7 @@ void AjouterEntrainement() {
 
       // Choisir le temps d'entrainement
     int exercice;
-    printf("Quelle série d'entrainement voulez-vous faire?\n");
+    printf("\nQuelle série d'entrainement voulez-vous faire?\n");
 
     //On choisit l'exercice à faire
     printf("1 : Papillon\n 2 : Crawl\n 3 : Brasse \n 4 : Dos à un bras \n 5 : Dos à deux bras       \n");
@@ -496,7 +497,7 @@ void AjouterEntrainement() {
     } while (exercice < 1 || exercice > 5);
 
     ////
-      printf("Combien de temps vont durer leurs entrainement en tout? (de la "
+      printf("\nCombien de temps vont durer leurs entrainement en tout? (de la "
              "forme : h:m:s)\n");
       do {
         printf("Choisir le nombre d'heures : ");
@@ -608,7 +609,7 @@ void AjouterEntrainement() {
     }
 
     // choisir la date d'entrainement
-    printf("Quand va-t-il s'entraîner ? (forme: jour/mois/annee):\n");
+    printf("\nQuand va-t-il s'entraîner ? (forme: jour/mois/annee):\n");
     do {
       printf("Choisir le jour : \n");
       scanf("%d", &s->exercice->date.jour);
@@ -648,7 +649,7 @@ void AjouterEntrainement() {
 
     // Choisir le temps d'entrainement
     printf(
-        "Combien de temps va durer son entraînement ? (de la forme : h:m:s)\n");
+        "\nCombien de temps va durer son entraînement ? (de la forme : h:m:s)\n");
     do {
       printf("Choisir le nombre d'heures : ");
       scanf("%d", &s->exercice->temps.heure); // saisi heure
@@ -716,7 +717,7 @@ void AjouterEntrainement() {
     free(s->exercice);
     free(s);
     
-    printf("l'entrainement a été de %s a été ajouté pour %s\n",change, s->nom);
+    printf("\nl'entrainement qui consiste au %s a été ajouté à vôtre athlète\n",change);
     // on demande si l'utilisateur veut ajouter un autre entrainement
     printf("\nVoulez-vous ajouter un autre entraînement ?(oui/non):\n");
     oui_non(reponse);
