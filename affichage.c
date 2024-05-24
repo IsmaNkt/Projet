@@ -171,7 +171,7 @@ void affiche_epreuve(int nbr_athletes, char *nom_athletes[]){
 char epreuve[25], epreuve_comp[25];
 FILE *fichier;
 char ligne[100];
-char *tab_epreuve[6] = {"100m", "400m", "5000m", "marathon", "relais", "natation"};
+char *tab_epreuve[9] = {"100m", "400m", "5000m", "marathon", "relais", "natation", "boxe", "judo", "escrime"};
 char reponse[4];
 int compte = 0;
 int epreuve_realisee = 0;
@@ -179,24 +179,24 @@ int epreuve_realisee = 0;
 do{
     epreuve_realisee = 0;
         do{
-            printf("\nSaisissez l'épreuve ('100m', '400m', '5000m', 'marathon', 'relais' ou 'natation'): \n");
+            printf("\nSaisissez l'épreuve ('100m', '400m', '5000m', 'marathon', 'relais' , 'natation' , 'boxe' , 'judo' ou 'escrime'): \n");
 
                 scanf("%s", epreuve);
                 while (getchar() != '\n'){}
 
                 compte = 0;
-                    for(int j=0; j<6; j++){
+                    for(int j=0; j<9; j++){
                             if(strcmp(epreuve, tab_epreuve[j]) != 0){
                                 compte++;
                             }
                     }
 
-                    if(compte == 6){
+                    if(compte == 9){
                     printf("Erreur, veuillez saisir une épreuve valide.\n");
                     }
 
 
-        }while (compte == 6);
+        }while (compte == 9);
 
 
   //la boucle parcours chaque fichier d'  athlète
@@ -245,7 +245,7 @@ void affiche_epreuve_date(int nbr_athletes, char *nom_athletes[]){
   char ligne[100];
   FILE *fichier;
   Date j, comp;
-  char *tab_epreuve[6] = {"100m", "400m", "5000m", "marathon", "relais", "natation"};
+  char *tab_epreuve[9] = {"100m", "400m", "5000m", "marathon", "relais", "natation", "boxe", "judo", "escrime"};
   char reponse[4];
   int compte = 0;
   int epreuve_realisee = 0;
@@ -294,24 +294,24 @@ void affiche_epreuve_date(int nbr_athletes, char *nom_athletes[]){
 
     epreuve_realisee = 0;
         do{
-            printf("\nSaisissez l'épreuve ('100m', '400m', '5000m', 'marathon', 'relais' ou 'natation'): \n");
+            printf("\nSaisissez l'épreuve ('100m', '400m', '5000m', 'marathon', 'relais', 'natation', 'boxe', 'judo' ou 'escrime'): \n");
 
                 scanf("%s", epreuve);
                 while (getchar() != '\n'){}
 
                 compte = 0;
-                    for(int j=0; j<6; j++){
+                    for(int j=0; j<9; j++){
                             if(strcmp(epreuve, tab_epreuve[j]) != 0){
                                 compte++;
                             }
                     }
 
-                    if(compte == 6){
+                    if(compte == 9){
                     printf("Erreur, veuillez saisir une épreuve valide.\n");
                     }
 
 
-        }while (compte == 6);
+        }while (compte == 9);
 
   for(int i=0; i<nbr_athletes; i++){
     fichier = fopen(nom_athletes[i], "r");
@@ -356,7 +356,7 @@ void affiche_epreuve_nom(){
     FILE *fichier;
     char ligne[100];
     char epreuve[25], epreuve_comp[25];
-    char *tab_epreuve[6] = {"100m", "400m", "5000m", "marathon", "relais", "natation"};
+    char *tab_epreuve[9] = {"100m", "400m", "5000m", "marathon", "relais", "natation", "boxe", "judo", "escrime"};
     char nom[50];
     char reponse[4];
     int compte = 0;
@@ -374,27 +374,27 @@ void affiche_epreuve_nom(){
   do{
     epreuve_realisee = 0;
         do{
-            printf("\nSaisissez l'épreuve ('100m', '400m', '5000m', 'marathon' ,'relais' ou 'natation'): \n");
+            printf("\nSaisissez l'épreuve ('100m', '400m', '5000m', 'marathon' ,'relais', 'natation', 'boxe', 'judo' ou 'escrime'): \n");
 
                 scanf("%s", epreuve);
                 while (getchar() != '\n'){}
 
                 compte = 0;
-                    for(int j=0; j<6; j++){
+                    for(int j=0; j<9; j++){
                             if(strcmp(epreuve, tab_epreuve[j]) != 0){
                                 compte++;
                             }
                     }
 
-                    if(compte == 6){
+                    if(compte == 9){
                     printf("Erreur, veuillez saisir une épreuve valide.\n");
                     }
 
 
-        }while (compte == 6);
+        }while (compte == 9);
 
 
-      for(int j=0; j<6; j++){
+      for(int j=0; j<9; j++){
         if(strcmp(epreuve, tab_epreuve[0]) != 0 || strcmp(epreuve, tab_epreuve[0]) != 0 || strcmp(epreuve, tab_epreuve[0]) != 0 || strcmp(epreuve, tab_epreuve[0]) != 0 || strcmp(epreuve, tab_epreuve[0]) != 0){
           printf("Erreur, veuillez saisir une épreuve valide.\n");
           affiche_epreuve_nom(nom);
@@ -436,7 +436,7 @@ char ligne[100];
 char epreuve[25], epreuve_comp[25];
 char nom[50];
 char reponse[4];
-char *tab_epreuve[6] = {"100m", "400m", "5000m", "marathon", "relais", "natation"};
+char *tab_epreuve[9] = {"100m", "400m", "5000m", "marathon", "relais", "natation", "boxe", "judo", "escrime"};
 int compte = 0;
 int epreuve_realisee = 0;
 Date j, comp;
@@ -492,24 +492,24 @@ do {
 
     epreuve_realisee = 0;
         do{
-            printf("\nSaisissez l'épreuve ('100m', '400m', '5000m', 'marathon', 'relais' ou 'natation'): \n");
+            printf("\nSaisissez l'épreuve ('100m', '400m', '5000m', 'marathon', 'relais', 'natation', 'boxe', 'judo' ou 'escrime'): \n");
 
                 scanf("%s", epreuve);
                 while (getchar() != '\n'){}
 
                 compte = 0;
-                    for(int j=0; j<6; j++){
+                    for(int j=0; j<9; j++){
                             if(strcmp(epreuve, tab_epreuve[j]) != 0){
                                 compte++;
                             }
                     }
 
-                    if(compte == 6){
+                    if(compte == 9){
                     printf("Erreur, veuillez saisir une épreuve valide.\n");
                     }
 
 
-        }while (compte == 6);
+        }while (compte == 9);
 
  while (fgets(ligne, sizeof(ligne), fichier) != NULL) {
 
