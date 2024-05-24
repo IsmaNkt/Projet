@@ -146,13 +146,13 @@ void AjouterEntrainement() {
     char change[50];
 
     if (choix == 5) {
-      char change1[] = "de boxe";
+      char change1[] = "boxe";
       strcpy(change, change1);
     } else if (choix == 8) {
-      char change1[] = "de judo";
+      char change1[] = "judo";
       strcpy(change, change1);
     } else if (choix == 9) {
-      char change1[] = "d'escrime";
+      char change1[] = "escrime";
       strcpy(change, change1);
     }
     s->exercice->temps.minute = (round * 3) + (round * 2);
@@ -167,6 +167,8 @@ void AjouterEntrainement() {
       strcpy(res1, "vainqueur");
       }
     // Écrire les détails de l'entraînement dans les fichiers des 4 sportifs
+    printf("\nLors de cette entrainement de %s en %d\n", change, round);
+    
     for (int i = 0; i < 2; i++) {
       FILE *fichier1 = fopen(nomS[i], "a");
       if (fichier1 == NULL) {
@@ -175,16 +177,19 @@ void AjouterEntrainement() {
       if(i==1){
         strcpy(res, res1);
       }
-
       fprintf(fichier1,
-              "Entrainement fait le %d/%d/%d pour l'épreuve %s avec un temps de %d:%d:%d en étant le %s de son entrainement \n",
+              "Entraînement fait le %.2d/%.2d/%d pour l'épreuve de %s avec un temps "
+              "de %.2d:%.2d:%.2d\n",
               s->exercice->date.jour, s->exercice->date.mois,
-              s->exercice->date.annee,change , s->exercice->temps.heure,
-              s->exercice->temps.minute, s->exercice->temps.seconde, res);
-
+              s->exercice->date.annee, change, s->exercice->temps.heure,
+              s->exercice->temps.minute, s->exercice->temps.seconde);
       fclose(fichier1);
+
+      printf("%s a été le %s de cette entrainement\n", nomS[i], res);
+      
+    
     }
-    printf("Voulez-vous ajouter un autre entraînement ?(oui/non):\n");
+    printf("\nVoulez-vous ajouter un autre entraînement ?(oui/non):\n");
     oui_non(reponse);
     if (strcmp(reponse, "oui") == 0){
       return AjouterEntrainement();
@@ -546,8 +551,9 @@ void AjouterEntrainement() {
     } else if (exercice == 5) {
       char change1[] = "Dos à deux bras";
       strcpy(change, change1);
-
+    }
       // Écrire les détails de l'entraînement dans les fichiers des 4 sportifs
+    printf("\nLes entrainements de %s ont été :\n",change);
       for (int i = 0; i < 4; i++) {
         FILE *fichier1 = fopen(nomS[i], "a");
         if (fichier1 == NULL) {
@@ -555,20 +561,30 @@ void AjouterEntrainement() {
         }
 
         fprintf(fichier1,
-                "Entrainement fait le %d/%d/%d pour l'épreuve de natation focalisé sur l'exercice '%s' avec un temps de %d:%d:%d \n",
+                "Entrainement fait le %d/%d/%d pour l'épreuve natation avec un "
+                "temps de %d:%d:%d\n",
                 s->exercice->date.jour, s->exercice->date.mois,
-                s->exercice->date.annee,change , s->exercice->temps.heure,
+                s->exercice->date.annee, s->exercice->temps.heure,
                 s->exercice->temps.minute, s->exercice->temps.seconde);
 
         fclose(fichier1);
+
+
+        printf("Prévu pour %s \n" , nomS[i]);
+
+        
+
+        
       }
-      printf("Voulez-vous ajouter un autre entraînement ?(oui/non):\n");
+
+      
+      printf("\nVoulez-vous ajouter un autre entraînement ?(oui/non):\n");
       oui_non(reponse);
       if (strcmp(reponse, "oui") == 0){
         return AjouterEntrainement();
       }
     }
-  }
+  
     // fin du cas piscine
 
 
@@ -698,8 +714,10 @@ void AjouterEntrainement() {
     // on libère tout
     free(s->exercice);
     free(s);
+    
+    printf("l'entrainement a été de %s a été ajouté pour %s\n",change, s->nom);
     // on demande si l'utilisateur veut ajouter un autre entrainement
-    printf("Voulez-vous ajouter un autre entraînement ?(oui/non):\n");
+    printf("\nVoulez-vous ajouter un autre entraînement ?(oui/non):\n");
     oui_non(reponse);
     if (strcmp(reponse, "oui") == 0){
       return AjouterEntrainement();
