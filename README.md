@@ -10,8 +10,7 @@ Il offre plusieurs fonctionnalités telles que:
   - la comparaison des temps entre deux dates pour une même épreuve
 
 
-#Structure du Projet
-
+# Structure du Projet
 Le projet est composé des fichiers suivants :
 
 1. menu.c : Contient les fonctions pour afficher le menu principal du programme.
