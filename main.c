@@ -36,35 +36,31 @@ int main() {
     while (getchar() != '\n'); // Vidage du buffer
 
     switch (choix) {
-      case 1:
-        creerFichier(nbr_athletes, nom_athletes);
-        break;
-
-      case 2: 
+      case 1: 
         AjouterEntrainement();
         break;
 
-      case 3:
+      case 2:
         choix_affichage(nbr_athletes, nom_athletes);
         break;
 
-      case 4:
+      case 3:
         perf_athlete();
         break;
 
-      case 5:
+      case 4:
         meilleur_temps(nbr_athletes, nom_athletes);
         break;
 
-      case 6:
+      case 5:
         diff_temps();
         break;
 
-      case 7:
+      case 6:
         pire_temps(nbr_athletes, nom_athletes);
         break;
 
-      case 8:
+      case 7:
           printf("Merci d'avoir utilisé Cer-JO ! Au revoir !\n");
           for (int i = 0; i < nbr_athletes; i++) {
               free(nom_athletes[i]);
