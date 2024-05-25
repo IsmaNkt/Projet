@@ -13,7 +13,7 @@ int main() {
 
   printf(" ~ Bienvenue !\nVous êtes dans le programme de gestion de l'entraînement Cer-JO ~\n");
 
-  printf("Combien de sportifs d'athlètes avez-vous ? \n");
+  printf("Combien de sportifs d'athlètes avez-vous ?(Vous ne pourrez pas ajouter de sportifs par la suite)\n");
   do {
     scanf("%d", &nbr_athletes);
     if (nbr_athletes <= 0) {
