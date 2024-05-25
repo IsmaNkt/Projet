@@ -23,7 +23,7 @@ void affiche_nom() {
 
   fclose(fichier);
 
-  printf("Voulez-vous afficher les résultats d'un autre athlète ?(oui/non):\n");
+  printf("Voulez-vous afficher les résultats d'un autre athlète de cette manière ?(oui/non):\n");
   oui_non(reponse);
   if (strcmp(reponse, "oui") == 0){
     affiche_nom();
@@ -65,7 +65,7 @@ if (fichier == NULL) {
 
 fclose(fichier); //fermer le fichier
 
-  printf("Voulez-vous afficher les résultats d'un autre athlète ?(oui/non):\n");
+  printf("Voulez-vous afficher les résultats d'un autre athlète de cette manière ?(oui/non):\n");
   oui_non(reponse);
   if (strcmp(reponse, "oui") == 0){
     affiche_nom_date();
@@ -156,7 +156,7 @@ int epreuve_realisee;
 
   } while(epreuve_realisee == 0);
 
-  printf("Voulez-vous afficher les résultats d'un autre athlète ?(oui/non):\n");
+  printf("Voulez-vous afficher les résultats d'un autre athlète de cette manière ?(oui/non):\n");
   oui_non(reponse);
   if (strcmp(reponse, "oui") == 0){
     affiche_date(nbr_athletes, nom_athletes);
@@ -229,7 +229,7 @@ do{
 
 } while(epreuve_realisee == 0);
 
-  printf("Voulez-vous afficher les résultats d'un autre athlète ?(oui/non):\n");
+  printf("Voulez-vous afficher les résultats d'un autre athlète de cette manière ?(oui/non):\n");
   oui_non(reponse);
   if (strcmp(reponse, "oui") == 0){
     affiche_epreuve(nbr_athletes, nom_athletes);
@@ -340,7 +340,7 @@ void affiche_epreuve_date(int nbr_athletes, char *nom_athletes[]){
 
   } while(epreuve_realisee == 0);
 
-  printf("Voulez-vous afficher les résultats d'un autre athlète ?(oui/non):\n");
+  printf("Voulez-vous afficher les résultats d'un autre athlète de cette manière ?(oui/non):\n");
   oui_non(reponse);
   if (strcmp(reponse, "oui") == 0){
     affiche_epreuve_date(nbr_athletes, nom_athletes);
@@ -420,7 +420,7 @@ void affiche_epreuve_nom(){
     }
 } while(epreuve_realisee == 0);
 
-  printf("Voulez-vous afficher les résultats d'un autre athlète ?(oui/non):\n");
+  printf("Voulez-vous afficher les résultats d'un autre athlète de cette manière ?(oui/non):\n");
   oui_non(reponse);
   if (strcmp(reponse, "oui") == 0){
     affiche_epreuve_nom();
@@ -529,7 +529,7 @@ do {
   }
   } while(epreuve_realisee == 0);
 
-    printf("Voulez-vous afficher les résultats d'un autre athlète ?(oui/non):\n");
+    printf("Voulez-vous afficher les résultats d'un autre athlète de cette manière ?(oui/non):\n");
     oui_non(reponse);
     if (strcmp(reponse, "oui") == 0){
       affiche_epreuve_nom_date();

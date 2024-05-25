@@ -56,13 +56,14 @@ void format_nom_fichier(char *nom) {
 //************************************************************************************************************
 
 // procédure créant un fichier pour un athlète
-void creerFichier(int nbr_athletes, char **nom_athletes, FILE **tab_fichier) {
+void creerFichier(int nbr_athletes, char **nom_athletes) {
     char nom[50];
-  
+    FILE * fichier;
+
     for (int i = 0; i < nbr_athletes; i++) {
         // on affiche le numéro du fichier actuel à 1 et non à 0
         do {
-          printf("Entrez le nom du sportif %d (de la forme 'Prenom_Nom'): ", i + 1);
+          printf("\nEntrez le nom du sportif %d (de la forme 'Prenom_Nom'): ", i + 1);
           scanf("%s", nom);
           if (valideNom(nom) != 1) {
             printf("Entrée invalide ! Réessayer.\n");
@@ -73,20 +74,17 @@ void creerFichier(int nbr_athletes, char **nom_athletes, FILE **tab_fichier) {
         
         format_nom_fichier(nom); // Fonction pour mettre un nom de fichier sous la forme: Prenom_Nom
   
-      tab_fichier[i] = fopen(nom, "w"); // permet de créer et d'ouvir un fichier avec le nom saisi par l'utilisateur, en mode écriture
+      fichier = fopen(nom, "w"); // permet de créer et d'ouvir un fichier avec le nom saisi par l'utilisateur, en mode écriture
   
-      if (tab_fichier[i] == NULL) {
-        printf("Impossible d'ouvrir le fichier %s. \n", nom);
+      if (fichier == NULL) {
+        printf("\nImpossible d'ouvrir le fichier %s. \n", nom);
         exit(1);
       }
   
-      nom_athletes[i] = strdup(nom); // aide de chatgpt pour dupliquer la chaîne de caractère vers une autre chaîne de caractère qui est alloué dynamiquement    
-    }
+      nom_athletes[i] = strdup(nom); // aide de chatgpt pour dupliquer la chaîne de caractère vers une autre chaîne de caractère qui est alloué dynamiquement 
 
-  // fermer tous les fichiers crées
-  for (int i = 0; i < nbr_athletes; i++) {
-    fclose(tab_fichier[i]);
-  }
+      fclose(fichier);   
+    }
 
   return;
 }

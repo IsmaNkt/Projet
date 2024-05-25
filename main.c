@@ -25,8 +25,9 @@ int main() {
 
   // déclaration des tableaux de fichiers et de sportifs
   char *nom_athletes[nbr_athletes];
+  FILE *tab_fichier[nbr_athletes];
 
-  creerFichier(nbr_athletes, nom_athletes);
+  creerFichier(nbr_athletes, nom_athletes, tab_fichier);
   AjouterEntrainement();
 
   while (1) {
@@ -36,7 +37,7 @@ int main() {
 
     switch (choix) {
       case 1:
-        creerFichier(nbr_athletes, nom_athletes);
+        creerFichier(nbr_athletes, nom_athletes, tab_fichier);
         break;
 
       case 2: 

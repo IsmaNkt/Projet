@@ -12,6 +12,6 @@ void minuscule_sauf_premiere_lettre(char *mot);
 void format_nom_fichier(char *nom);
 
 // procédure créant un fichier pour un athlète
-void creerFichier(int nbr_athletes, char **nom_athletes, FILE **tab_fichier);
+void creerFichier(int nbr_athletes, char **nom_athletes);
 
 #endif
