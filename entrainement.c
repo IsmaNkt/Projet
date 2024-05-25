@@ -167,7 +167,7 @@ void AjouterEntrainement() {
       strcpy(res1, "vainqueur");
       }
     // Écrire les détails de l'entraînement dans les fichiers des 4 sportifs
-    printf("\nLors de cette entrainement de %s en %d round : \n", change, round);
+    printf("\nLors de cet entrainement de %s en %d round : \n", change, round);
     
     for (int i = 0; i < 2; i++) {
       FILE *fichier1 = fopen(nomS[i], "a");
@@ -186,7 +186,7 @@ void AjouterEntrainement() {
               s->exercice->temps.minute, s->exercice->temps.seconde);
       fclose(fichier1);
 
-      printf("%s a été le %s de cette entrainement\n", nomS[i], res);
+      printf("%s a été le %s de cet entrainement\n", nomS[i], res);
       
     
     }
