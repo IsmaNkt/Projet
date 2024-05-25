@@ -186,7 +186,7 @@ void AjouterEntrainement() {
               s->exercice->temps.minute, s->exercice->temps.seconde);
       fclose(fichier1);
 
-      printf("%s a été le %s de cet entrainement\n", nomS[i], res);
+      printf("%s a été le %s de cette entrainement\n", nomS[i], res);
       
     
     }
@@ -195,7 +195,7 @@ void AjouterEntrainement() {
     if (strcmp(reponse, "oui") == 0){
       return AjouterEntrainement();
     }
-  } 
+  } //fin du des cas de boxe + judo + escrime
 
   //**************************************************************************************
   // Cas relais
@@ -361,14 +361,14 @@ void AjouterEntrainement() {
       }
 
       fprintf(fichier1,
-              "Entrainement fait le %d/%d/%d pour l'épreuve relais avec un "
-              "temps de %d:%d:%d en ayant la position %d \n",
+              "Entraînement fait le %.2d/%.2d/%d pour l'épreuve relais avec un temps de %.2d:%.2d:%.2d en ayant la position %d \n",
               s->exercice->date.jour, s->exercice->date.mois,
               s->exercice->date.annee, s->exercice->temps.heure,
               s->exercice->temps.minute, s->exercice->temps.seconde, i + 1);
 
       fclose(fichier1);
     }
+    printf("\n l'entrainement de relais a été prévu avec succès pour vos 4 athlètes\n");
     printf("\nVoulez-vous ajouter un autre entraînement ?(oui/non):\n");
     oui_non(reponse);
     if (strcmp(reponse, "oui") == 0){
@@ -563,8 +563,7 @@ void AjouterEntrainement() {
         }
 
         fprintf(fichier1,
-                "Entrainement fait le %d/%d/%d pour l'épreuve natation avec un "
-                "temps de %d:%d:%d\n",
+                "Entraînement fait le %.2d/%.2d/%d pour l'épreuve natation avec un temps de %.2d:%.2d:%.2d\n",          
                 s->exercice->date.jour, s->exercice->date.mois,
                 s->exercice->date.annee, s->exercice->temps.heure,
                 s->exercice->temps.minute, s->exercice->temps.seconde);
@@ -706,8 +705,7 @@ void AjouterEntrainement() {
 
     // ecrire les details de l'entrainement dans le fichier
     fprintf(fichier,
-            "Entraînement fait le %.2d/%.2d/%d pour l'épreuve %s avec un temps "
-            "de %.2d:%.2d:%.2d\n",
+            "Entraînement fait le %.2d/%.2d/%d pour l'épreuve %s avec un temps de %.2d:%.2d:%.2d\n",
             s->exercice->date.jour, s->exercice->date.mois,
             s->exercice->date.annee, change, s->exercice->temps.heure,
             s->exercice->temps.minute, s->exercice->temps.seconde);
