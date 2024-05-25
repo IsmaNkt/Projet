@@ -30,7 +30,7 @@ void perf_athlete() {
     }
   } while (choix_epreuve < 1 || choix_epreuve > 6);
 
-  char *epreuve[] = {"100m", "400m", "5000m", "marathon", "relais","natation"};
+  char *epreuve[] = {"100m", "400m", "5000m", "marathon","relais","natation"};
 
   while (fgets(ligne, sizeof(ligne), fichier)) { // lit les lignes du fichier
     if (sscanf(ligne, "Entraînement fait le %*s pour l'épreuve %s avec un temps de %d:%d:%d", epreuve_ligne, &heures, &minutes, &secondes) == 4) {
@@ -150,32 +150,52 @@ void meilleur_temps(int nbr_athletes, char *nom_athletes[]) {
   int temps3 = 86400;
 
   for (int i = 1; i < nbr_athletes; i++) {
-    if (moyenne_temps[i]<temps1) {
-      temps3 = temps2; //on met à jour le top3
-      strcpy(nom_troisieme,nom_deuxieme); 
-      temps2 = temps1; // on met à jour le top2
-      strcpy(nom_deuxieme,nom_premier);
-      temps1 = moyenne_temps[i]; //on met à jour le top1
-      strcpy(nom_premier,nom_athletes[i]);
-    } else if (moyenne_temps[i]<temps2) { //2 cas
-      temps3 = temps2; //à jour top3
-      strcpy(nom_troisieme,nom_deuxieme);
-      temps2 = moyenne_temps[i]; //jour top2
-      strcpy(nom_deuxieme,nom_athletes[i]);
-    } else if (moyenne_temps[i]<temps3) {
-      temps3 = moyenne_temps[i]; //à jour top3
-      strcpy(nom_troisieme,nom_athletes[i]);
-    }
+    if(moyenne_temps[i] != 0){
+      if (moyenne_temps[i]<temps1) {
+        temps3 = temps2; //on met à jour le top3
+        strcpy(nom_troisieme,nom_deuxieme); 
+        temps2 = temps1; // on met à jour le top2
+        strcpy(nom_deuxieme,nom_premier);
+        temps1 = moyenne_temps[i]; //on met à jour le top1
+        strcpy(nom_premier,nom_athletes[i]);
+      } else if (moyenne_temps[i]<temps2) { //2 cas
+        temps3 = temps2; //à jour top3
+        strcpy(nom_troisieme,nom_deuxieme);
+        temps2 = moyenne_temps[i]; //jour top2
+        strcpy(nom_deuxieme,nom_athletes[i]);
+      } else if (moyenne_temps[i]<temps3) {
+        temps3 = moyenne_temps[i]; //à jour top3
+        strcpy(nom_troisieme,nom_athletes[i]);
+      }
+    }  
   }
 
-  printf("En dernière place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_premier, temps1/3600, (temps1%3600)/60, temps1%60);
-  printf("En avant dernière place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_deuxieme, temps2/3600, (temps2%3600)/60, temps2%60);
-  printf("Et pour finir, en avant avant dernière place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_troisieme, temps3/3600, (temps3%3600)/60, temps3%60);
+  if(temps1 == 0){
+    printf("\nAucun entraînement n'a été trouvé pour l'épreuve par conséquent personne n'est dans le classement\n");
+  }
 
+  else if(temps2 == 86400){
+     printf("\nEn 1re place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_premier, temps1/3600, (temps1%3600)/60, temps1%60);
+    printf("\nNous avons que 1 athlète dans le top 3\n");
+    printf("Il n'y a ni deuxième ni troisième meilleur athlète pour cette épreuve car c'est le seul à s'être entrainer.\n");
+  }
+
+  else if(temps3 == 86400){
+    printf("\nEn 1re place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_premier, temps1/3600, (temps1%3600)/60, temps1%60);
+    printf("En 2e place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_deuxieme, temps2/3600, (temps2%3600)/60, temps2%60);
+    printf("\nNous avons que 2 athlètes dans le top 3\n");
+    printf("Il n'y a pas de troisième meilleur athlète pour cette épreuve car ce sont les 2 seules à s'être entrainer.\n");
+  }
+
+  else{
+    printf("\nEn 1re place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_premier, temps1/3600, (temps1%3600)/60, temps1%60);
+    printf("En 2e place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_deuxieme, temps2/3600, (temps2%3600)/60, temps2%60);
+    printf("Et pour finir, en 3e place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_troisieme, temps3/3600, (temps3%3600)/60, temps3%60);
+    }
 
 
   char reponse[4]; // Pour stocker "oui" ou "non"
-  printf("Souhaitez-vous continuer à savoir qui sont les meilleurs athlètes dans une autre épreuve? (oui/non):\n");
+  printf("\nSouhaitez-vous continuer à savoir qui sont les meilleurs athlètes dans une autre épreuve? (oui/non):\n");
   oui_non(reponse); //appel de la fonction pour vérifier si l'utilisateur veut continuer ou non
   if (strcmp(reponse, "oui") == 0){
     meilleur_temps(nbr_athletes,nom_athletes);
@@ -184,7 +204,7 @@ void meilleur_temps(int nbr_athletes, char *nom_athletes[]) {
 
 //************************************************************************************************************
 
-//fonction qui affiche le top3 pire athlète dans une épreuve
+//fonction qui affiche le top3 meilleur athlète dans une épreuve
 void pire_temps(int nbr_athletes, char *nom_athletes[]) {
   int choix_epreuve;  // choix de l'épreuve avec un entier
   char ligne[256];   // pour stocker les lignes lues dans le fichier
@@ -200,7 +220,7 @@ void pire_temps(int nbr_athletes, char *nom_athletes[]) {
   FILE *fichier;
 
 
-  printf("\nQuelle est l'épreuve dont souhaitez-vous connaître ses 3 meilleurs athlètes?");
+  printf("\nQuelle est l'épreuve dont souhaitez-vous connaître ses 3 pires athlètes?");
   printf("\n1 : 100m \n2 : 400m \n3 : 5000m \n4 : marathon\n5 : relais\n 6 : natation \n");
 
   do {
@@ -270,9 +290,31 @@ void pire_temps(int nbr_athletes, char *nom_athletes[]) {
     }
   }
 
-  printf("En 1re place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_premier, temps1/3600, (temps1%3600)/60, temps1%60);
-  printf("En 2e place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_deuxieme, temps2/3600, (temps2%3600)/60, temps2%60);
-  printf("Et pour finir, en 3e place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_troisieme, temps3/3600, (temps3%3600)/60, temps3%60);
+  
+  if(temps1 == 0){
+    printf("\nAucun entraînement n'a été trouvé pour l'épreuve par conséquent personne n'est dans le classement\n");
+  }
+
+  else if(temps2 == 0){
+     printf("\nEn 1re place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_premier, temps1/3600, (temps1%3600)/60, temps1%60);
+    printf("\nNous avons que 1 athlète dans le top 3\n");
+    printf("Il n'y a ni deuxième ni troisième pire athlète pour cette épreuve car c'est le seul à s'être entrainer.\n");
+  }
+
+  else if(temps3 == 0){
+    printf("\nVos sportifs les moins performant sont :\n");
+    printf("En 1re place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_premier, temps1/3600, (temps1%3600)/60, temps1%60);
+    printf("En 2e place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_deuxieme, temps2/3600, (temps2%3600)/60, temps2%60);
+    printf("\nNous avons que 2 athlètes dans le top 3\n");
+    printf("Il n'y a pas de troisième pire athlète pour cette épreuve car ce sont les 2 seules à s'être entrainer.\n");
+  }
+
+  else{
+    printf("\nVos sportifs les moins performant sont :\n");
+    printf("En 1re place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_premier, temps1/3600, (temps1%3600)/60, temps1%60);
+    printf("En 2e place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_deuxieme, temps2/3600, (temps2%3600)/60, temps2%60);
+    printf("Et pour finir, en 3e place nous avons %s avec son temps moyen de : %.2d:%.2d:%.2d\n", nom_troisieme, temps3/3600, (temps3%3600)/60, temps3%60);
+    }
 
 
 
