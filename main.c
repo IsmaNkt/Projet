@@ -25,7 +25,6 @@ int main() {
 
   // déclaration des tableaux de fichiers et de sportifs
   char *nom_athletes[nbr_athletes];
-  FILE *tab_fichier[nbr_athletes];
 
   creerFichier(nbr_athletes, nom_athletes);
   AjouterEntrainement();
