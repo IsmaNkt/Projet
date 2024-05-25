@@ -23,7 +23,7 @@ int main() {
     }
   } while (nbr_athletes <= 0);
 
-  // déclaration des tableaux de fichiers et de sportifs
+  // déclaration du tableau de fichiers
   char *nom_athletes[nbr_athletes];
 
   creerFichier(nbr_athletes, nom_athletes);
