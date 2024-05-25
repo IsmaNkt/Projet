@@ -55,9 +55,15 @@ Le projet est composé des fichiers suivants :
 # Utilisation
 Assurez-vous que tous les fichiers .c et .h sont présents dans le répertoire de compilation.
 
-Pour utiliser le programme, compilez tous les fichiers source en utilisant votre compilateur C (gcc) à l'aide de la commande: make
+Pour utiliser le programme, compilez tous les fichiers source en utilisant votre compilateur C (gcc) à l'aide de la commande:
 
-Ensuite, exécutez le fichier exécutable à l'aide de la commande: ./main
+```bash
+  make
+```
+Ensuite, exécutez le fichier exécutable à l'aide de la commande:
+```bash
+  ./main
+```
 
 Lors de l'exécution, suivez les instructions du menu pour accéder aux différentes fonctionnalités du programme.
 
@@ -65,3 +71,4 @@ Lors de l'exécution, suivez les instructions du menu pour accéder aux différe
 
 # Développeurs
 Ce programme a été développé par Ismail NIAKATE, Alexis MURUGAN et Hugo TRAN-PHAT.
+
