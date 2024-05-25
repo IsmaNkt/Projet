@@ -8,7 +8,6 @@ https://www.canva.com/design/DAGGO8MQwf0/8o4jIED-lCM2iiS7ngv4OA/edit?utm_content
 Ce programme permet de gérer les athlètes et leurs entraînements dans différentes épreuves sportives. 
 
 Il offre plusieurs fonctionnalités telles que:
-  - Création de fichiers pour les athlètes
   - Ajout d'entraînements
   - Consultation de l'historique des entraînements
   - Affichage des performances des athlètes
