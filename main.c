@@ -27,7 +27,7 @@ int main() {
   char *nom_athletes[nbr_athletes];
   FILE *tab_fichier[nbr_athletes];
 
-  creerFichier(nbr_athletes, nom_athletes, tab_fichier);
+  creerFichier(nbr_athletes, nom_athletes);
   AjouterEntrainement();
 
   while (1) {
@@ -37,7 +37,7 @@ int main() {
 
     switch (choix) {
       case 1:
-        creerFichier(nbr_athletes, nom_athletes, tab_fichier);
+        creerFichier(nbr_athletes, nom_athletes);
         break;
 
       case 2: 
