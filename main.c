@@ -38,7 +38,6 @@ int main() {
     switch (choix) {
       case 1:
         creerFichier(nbr_athletes, nom_athletes);
-        nbr_athletes = 0; // remet à 0 le nbr d'athlètes
         break;
 
       case 2: 
