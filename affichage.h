@@ -24,6 +24,6 @@ void affiche_epreuve_nom();
 void affiche_epreuve_nom_date();
 
 // fonction qui va demander à l'utilisateur de quelle manière il veut afficher les résultats, puis appeller une fonction en fonction de ce choix
-void choix_affichage(int nbr_athletes, char *nom_athletes[], FILE * tab_fichier[]);
+void choix_affichage(int nbr_athletes, char *nom_athletes[]);
 
 #endif
