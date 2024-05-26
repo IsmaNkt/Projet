@@ -73,9 +73,15 @@ void creerFichier(int nbr_athletes, char **nom_athletes) {
         format_nom_fichier(nom); // Fonction pour mettre un nom de fichier sous la forme: Prenom_Nom
 
         // vérifier si le fichier existe déjà
-        
+        fichier = fopen(nom, "r");
+          if(fichier != NULL){
+            printf("Ce fichier a déjà été créé. Veuillez entrer un autre nom !\n");
+            fclose(fichier);
+          }else {
+            compt = 1;
+          }
+        } while(!compt);
 
-        
         fichier = fopen(nom, "w"); // permet de créer et d'ouvir un fichier avec le nom saisi par l'utilisateur, en mode écriture
         if (fichier == NULL) {
           printf("\nImpossible d'ouvrir le fichier %s. \n", nom);
