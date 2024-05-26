@@ -80,7 +80,7 @@ void AjouterEntrainement() {
       return (AjouterEntrainement());
     }
 
-    printf("\n vérification terminée.\n");
+    printf("\n   Vérification terminée.\n\n");
     printf("Il est temps de choisir vos 2 sportifs pour l'épreuve.\n");
     printf("Choisir les athlètes qui vont participer.\n");
     do {
