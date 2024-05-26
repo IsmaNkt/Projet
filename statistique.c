@@ -100,7 +100,7 @@ void meilleur_temps(int nbr_athletes, char *nom_athletes[]) {
 
 
   printf("\nQuelle est l'épreuve dont souhaitez-vous connaître ses 3 meilleurs athlètes?");
-  printf("\n1 : 100m \n2 : 400m \n3 : 5000m \n4 : marathon\n5 : relais\n 6 : natation \n");
+  printf("\n1 : 100m \n2 : 400m \n3 : 5000m \n4 : marathon\n5 : relais\n6 : natation \n");
 
   do {
     scanf("%d", &choix_epreuve);
@@ -221,12 +221,12 @@ void pire_temps(int nbr_athletes, char *nom_athletes[]) {
 
 
   printf("\nQuelle est l'épreuve dont souhaitez-vous connaître ses 3 pires athlètes?");
-  printf("\n1 : 100m \n2 : 400m \n3 : 5000m \n4 : marathon\n5 : relais\n 6 : natation \n");
+  printf("\n1 : 100m \n2 : 400m \n3 : 5000m \n4 : marathon\n5 : relais\n6 : natation \n");
 
   do {
     scanf("%d", &choix_epreuve);
-    while (getchar() != '\n')
-      ;
+    while (getchar() != '\n');
+    
     if (choix_epreuve < 1 || choix_epreuve > 6) {
       printf("Choisir un numéro valable: "); // message d'erreur si mauvaise valeure
     }
