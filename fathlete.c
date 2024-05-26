@@ -60,7 +60,7 @@ void creerFichier(int nbr_athletes, char **nom_athletes) {
     FILE * fichier;
 
     for (int i = 0; i < nbr_athletes; i++) { // on affiche le numéro du fichier actuel à 1 et non à 0
-        int compt =0;
+        int compt = 0;
         do {
           printf("\nEntrez le nom du sportif %d (de la forme 'Prenom_Nom'): ", i + 1);
           scanf("%s", nom);
