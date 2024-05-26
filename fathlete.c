@@ -49,7 +49,6 @@ void format_nom_fichier(char *nom) {
 
     // Assembler le prénom et le nom de famille dans la chaine de caractere 'nom'
     sprintf(nom, "%s_%s", prenom, nom_famille);
-    printf("  --> Voici le nom du fichier créé: %s\n", nom); //afficher le nom du fichier créé
 }
 
 
@@ -60,30 +59,32 @@ void creerFichier(int nbr_athletes, char **nom_athletes) {
     char nom[50];
     FILE * fichier;
 
-    for (int i = 0; i < nbr_athletes; i++) {
-        // on affiche le numéro du fichier actuel à 1 et non à 0
+    for (int i = 0; i < nbr_athletes; i++) { // on affiche le numéro du fichier actuel à 1 et non à 0
         do {
           printf("\nEntrez le nom du sportif %d (de la forme 'Prenom_Nom'): ", i + 1);
           scanf("%s", nom);
+          while (getchar() != '\n'); // Vidage du buffer
+            
           if (valideNom(nom) != 1) {
             printf("Entrée invalide ! Réessayer.\n");
-            while (getchar() != '\n'); // Vidage du buffer
-    
           }
         } while (valideNom(nom) != 1);
         
         format_nom_fichier(nom); // Fonction pour mettre un nom de fichier sous la forme: Prenom_Nom
-  
-      fichier = fopen(nom, "w"); // permet de créer et d'ouvir un fichier avec le nom saisi par l'utilisateur, en mode écriture
-  
-      if (fichier == NULL) {
-        printf("\nImpossible d'ouvrir le fichier %s. \n", nom);
-        exit(1);
-      }
-  
-      nom_athletes[i] = strdup(nom); // aide de chatgpt pour dupliquer la chaîne de caractère vers une autre chaîne de caractère qui est alloué dynamiquement 
 
-      fclose(fichier);   
+        // vérifier si le fichier existe déjà
+        
+
+        
+        fichier = fopen(nom, "w"); // permet de créer et d'ouvir un fichier avec le nom saisi par l'utilisateur, en mode écriture
+        if (fichier == NULL) {
+          printf("\nImpossible d'ouvrir le fichier %s. \n", nom);
+          exit(1);
+        }
+  
+        nom_athletes[i] = strdup(nom); // aide de chatgpt pour dupliquer la chaîne de caractère vers une autre chaîne de caractère qui est alloué dynamiquement 
+        fclose(fichier);   
+        printf("  --> Voici le nom du fichier créé: %s\n", nom); //afficher le nom du fichier créé
     }
 
   return;
